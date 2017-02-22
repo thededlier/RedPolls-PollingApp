@@ -14,50 +14,50 @@
     <body>  
         <div class="container">
             <div class="row">
-                <form>
+                <form method="POST" action="./process/process_register.php">
                     <h3 class="center">Enter Your Details</h3>
                     <div class="col-md-3 col-lg-3 col-xs-11 center-block panel panel-white">
                         <div class="form-group">
                             <label for="userName">Name</label>
-                            <input type="text" class="form-control" id="userName">
+                            <input type="text" class="form-control" name="name" id="userName">
                         </div>
                         <div class="form-group">
                             <label for="userNameUn">Unique User Name</label>
-                            <input type="text" class="form-control" id="userNameUn">
+                            <input type="text" class="form-control" name="username" id="userNameUn">
                         </div>
                         <div class="form-group">
                             <label for="userEmail">Email</label>
-                            <input type="text" class="form-control" id="userEmail">
+                            <input type="text" class="form-control" name="userEmail" id="userEmail">
                         </div>
                         <div class="form-group">
                             <label for="userPass">Password</label>
-                            <input type="password" class="form-control" id="userPass"> 
+                            <input type="password" class="form-control" name="userPass" id="userPass"> 
                         </div>
 
                         <div class="form-group">
                             <label for="userPassTest">Confirm Password</label>
                             <input type="password" class="form-control" id="userPassTest"> 
                         </div>
-                        <button class="btn btn-success btn-block">Next</button>
+                        <button class="btn btn-success btn-block" type="submit">Next</button>
                     </div>
 
                     <h3 class="center">Choose Your Interests</h3>
                     <div class="col-md-3 col-lg-3 col-xs-11 center-block panel panel-white">
                         <div class="col-md-offset-3">
                             <label class="control control--checkbox">Politics
-                                <input type="checkbox"/>
+                                <input type="checkbox" name="interestPolitics" value="Politics"/>
                                 <div class="control__indicator"></div>
                             </label>
                             <label class="control control--checkbox">Bussiness
-                                <input type="checkbox"/>
+                                <input type="checkbox" name="interestBusiness" value="Bussiness"/>
                                 <div class="control__indicator"></div>
                             </label>
                             <label class="control control--checkbox">Education
-                                <input type="checkbox"/>
+                                <input type="checkbox" name="interestEducation" value="Education"/>
                                 <div class="control__indicator"></div>
                             </label>
                         </div>
-                        <button class="btn btn-success btn-block">Continue</button>
+                        <button class="btn btn-success btn-block" type="submit">Continue</button>
                     </div>
                 </form>
             </div>
