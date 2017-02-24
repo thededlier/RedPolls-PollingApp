@@ -28,7 +28,7 @@
 		$topics .= $_POST["interestEducation"];
 
     // [START SUBMISSION]
-	$sql = "INSERT INTO users(username, name, email, password) 
+	$sql = "INSERT INTO users(name, username, email, password) 
 			VALUES('$name', '$user_name', '$email', '$password')";
 
     	if ($conn->query($sql) === TRUE) {

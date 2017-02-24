@@ -1,3 +1,9 @@
+<?php
+    include './process/connect.php';
+
+    session_start();
+?>
+
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,13 +20,13 @@
                 </div>
                 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">New Poll</a></li>
+                    <li><a href="./create.php">New Poll</a></li>
                     <li><a href="#">My Polls</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Rohan Anand</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["username"] ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Settings</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="./process/process_logout.php">Logout</a></li>
                         </ul>
                     </li>
                     <!--<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->

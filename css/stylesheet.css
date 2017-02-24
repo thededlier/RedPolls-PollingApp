@@ -2,6 +2,9 @@ body {
     background-color: #f7f7f7;
 }
 
+textarea {
+    resize: none;
+}
 .panel-login {
     margin-top: 10px;
     padding-top: 20px;
@@ -10,8 +13,8 @@ body {
 }
 
 .navbar-default {
-    border-bottom-width: 1px;
-    border-bottom-color: #ff0000;
+    border-top-width: 2px;
+    border-top-color: #ff0000;
 }
 
 .padd-0{
