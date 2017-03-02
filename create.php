@@ -48,35 +48,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 panel panel-white">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="./process/process_creation.php" method="POST" enctype = "multipart/form-data">
                         <div class="form-group">
                             <label for="upFile" class="control-label col-md-2">Upload an Image</label>
                             <div class="col-md-9">
-                                <input type="file" accept="image/jpeg, image/png" class="btn btn-primary" id="upFile">
+                                <input type="file" accept="image/jpeg, image/png" class="btn btn-primary" id="upFile" name="image">
                             </div>
                             <img class="img-responsive col-md-9" id="preview">
                         </div>
                         <div class="form-group">
                             <label for="pollTitle" class="control-label col-md-2">Title</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="pollTitle">
+                                <input type="text" class="form-control" id="pollTitle" name="pollTitle">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="pollDesc" class="control-label col-md-2">Description</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" rows=4 id="pollDesc"></textarea>
+                                <textarea class="form-control" rows=4 id="pollDesc" name="pollDesc"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="topic" class="control-label col-md-2">Topics</label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="topic" name="topics">
+                                    <option value="Politics">Politics</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Eductation">Education</option>
+                                    <option value="Other">Other</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="endDate" class="control-label col-md-2">End Date</label>
                             <div class="col-md-4">
-                                <input type="date" class="form-control" id="endDate">
+                                <input type="date" class="form-control" id="endDate" name="endDate">
                             </div>
                         </div>
                         <div class="col-md-11">
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-default">Cancel</button>
+                                <button type="button" class="btn btn-default">Cancel</button>
                                 <button type="submit" class="btn btn-primary">Create</button>
                             </div>
                         </div>
