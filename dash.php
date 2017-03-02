@@ -2,23 +2,40 @@
     include './process/connect.php';
 
     session_start();
+    $user = $_SESSION["username"];
+
+//    Get User Polls
+        $shortList = "";
+
+        $sql = "SELECT title FROM polls where createdBy = '$user'";
+
+        $result = $conn->query($sql);
+
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $shortList .= '<a href="#" class="list-group-item">' . $row["title"] . '</a>';
+            }
+        } else {
+            $shortList = '<a class="list-group-item"> You have no polls of your own </a>';
+        }
+//
 ?>
 
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="./css/bootstrap.min.css">    
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
         <!-- Custom stylesheet -->
         <link rel="stylesheet" href="./css/stylesheet.css">
     </head>
-    <body>  
+    <body>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">RedPolls</a>
                 </div>
-                
+
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="./create.php">New Poll</a></li>
                     <li><a href="#">My Polls</a></li>
@@ -54,19 +71,19 @@
                             <h3>Test Poll</h3>
                             <p>
                                 Test Description Test Description Test Description Test Description Test Description Test Description Test DescriptionTest Description Test Description
-                            </p> 
+                            </p>
                         </a>
                         <a href="#" class="list-group-item">
                             <h3>Test Poll</h3>
                             <p>
                                 Test Description Test Description Test Description Test Description Test Description Test Description Test DescriptionTest Description Test Description
-                            </p> 
+                            </p>
                         </a>
                         <a href="#" class="list-group-item">
                             <h3>Test Poll</h3>
                             <p>
                                 Test Description Test Description Test Description Test Description Test Description Test Description Test DescriptionTest Description Test Description
-                            </p> 
+                            </p>
                         </a>
                     </div>
                 </div>
@@ -74,10 +91,7 @@
                 <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 hidden-xs panel panel-white panel-red-top">
                     <div class="list-group">
                         <h3>My Polls</h3>
-                        <a href="#" class="list-group-item">Test Poll</a>
-                        <a href="#" class="list-group-item">Test Poll</a>
-                        <a href="#" class="list-group-item">Test Poll</a>
-                        <a href="#" class="list-group-item">Test Poll</a>
+                        <?php echo $shortList; ?>
                     </div>
                 </div>
             </div>

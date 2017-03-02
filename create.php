@@ -2,6 +2,24 @@
     include './process/connect.php';
 
     session_start();
+
+    $user = $_SESSION["username"];
+    
+//    Get User Polls
+        $shortList = "";
+
+        $sql = "SELECT title FROM polls where createdBy = '$user'";
+
+        $result = $conn->query($sql);
+
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $shortList .= '<a href="#" class="list-group-item">' . $row["title"] . '</a>';   
+            }
+        } else {
+            $shortList = '<a class="list-group-item"> You have no polls of your own </a>';
+        }
+//
 ?>
 
 <html>
@@ -96,10 +114,7 @@
                 <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 hidden-xs panel panel-white panel-red-top">
                     <div class="list-group">
                         <h3>My Polls</h3>
-                        <a href="#" class="list-group-item">Test Poll</a>
-                        <a href="#" class="list-group-item">Test Poll</a>
-                        <a href="#" class="list-group-item">Test Poll</a>
-                        <a href="#" class="list-group-item">Test Poll</a>
+                        <?php echo $shortList; ?>
                     </div>
                 </div>
             </div>
@@ -109,7 +124,8 @@
         <script src="js/jquery-1.9.1.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="./js/bootstrap.min.js"></script>
-
+        
+        <!-- Get image preview -->
         <script>
             document.getElementById("upFile").onchange = function () {
                 var reader = new FileReader();
