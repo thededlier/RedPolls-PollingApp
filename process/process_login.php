@@ -13,7 +13,7 @@
 
 		if($result->num_rows > 0) {
 			$_SESSION["username"] = $user_name;
-			header("Location: ../dash.php");
+			header("Location: ../index.php");
 		} else {
 			$_SESSION["ERR"] = "Invalid Username or Password. Please try again"; 
 			header("Location: ../login.php");
