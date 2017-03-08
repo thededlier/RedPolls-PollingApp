@@ -92,7 +92,7 @@
                                 <select class="form-control" id="topic" name="topics">
                                     <option value="Politics">Politics</option>
                                     <option value="Business">Business</option>
-                                    <option value="Eductation">Education</option>
+                                    <option value="Education">Education</option>
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
