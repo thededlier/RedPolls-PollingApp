@@ -25,7 +25,7 @@
         
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                $html .=    '<a href="#" class="list-group-item">' .
+                $html .=    '<a href="./events.php?poll_id='. $row["pollID"] . '" class="list-group-item">' .
                                 '<div class="row">' .
                                     '<div class="col-xs-2 col-md-3">' .
                                         '<img class="img-responsive" src="./polls/covers/' . $row["coverImg"] . '">' .
