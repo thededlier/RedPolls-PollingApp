@@ -2,7 +2,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="./css/bootstrap.min.css">    
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
         <!-- jQuery library -->
         <script src="js/jquery-1.9.1.min.js"></script>
         <!-- Latest compiled JavaScript -->
@@ -11,57 +11,69 @@
         <!-- Custom stylesheet -->
         <link rel="stylesheet" href="./css/stylesheet.css">
     </head>
-    <body>  
+    <body>
         <div class="container">
             <div class="row">
                 <form method="POST" action="./process/process_register.php">
-                    <h3 class="center">Enter Your Details</h3>
-                    <div class="col-md-3 col-lg-3 col-xs-11 center-block panel panel-white">
-                        <div class="form-group">
-                            <label for="userName">Name</label>
-                            <input type="text" class="form-control" name="name" id="userName">
-                        </div>
-                        <div class="form-group">
-                            <label for="userNameUn">Unique User Name</label>
-                            <input type="text" class="form-control" name="username" id="userNameUn">
-                        </div>
-                        <div class="form-group">
-                            <label for="userEmail">Email</label>
-                            <input type="text" class="form-control" name="userEmail" id="userEmail">
-                        </div>
-                        <div class="form-group">
-                            <label for="userPass">Password</label>
-                            <input type="password" class="form-control" name="userPass" id="userPass"> 
-                        </div>
+                    <div id="details">
+                        <h3 class="center">Enter Your Details</h3>
+                        <div class="col-md-3 col-lg-3 col-xs-11 center-block panel panel-white">
+                            <div class="form-group">
+                                <label for="userName">Name</label>
+                                <input type="text" class="form-control" name="name" id="userName">
+                            </div>
+                            <div class="form-group">
+                                <label for="userNameUn">Unique User Name</label>
+                                <input type="text" class="form-control" name="username" id="userNameUn">
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmail">Email</label>
+                                <input type="text" class="form-control" name="userEmail" id="userEmail">
+                            </div>
+                            <div class="form-group">
+                                <label for="userPass">Password</label>
+                                <input type="password" class="form-control" name="userPass" id="userPass">
+                            </div>
 
-                        <div class="form-group">
-                            <label for="userPassTest">Confirm Password</label>
-                            <input type="password" class="form-control" id="userPassTest"> 
+                            <div class="form-group">
+                                <label for="userPassTest">Confirm Password</label>
+                                <input type="password" class="form-control" id="userPassTest">
+                            </div>
+                            <button class="btn btn-success btn-block" type="button" id="next">Next</button>
                         </div>
-                        <button class="btn btn-success btn-block" type="submit">Next</button>
                     </div>
-
-                    <h3 class="center">Choose Your Interests</h3>
-                    <div class="col-md-3 col-lg-3 col-xs-11 center-block panel panel-white">
-                        <div class="col-md-offset-3">
-                            <label class="control control--checkbox">Politics
-                                <input type="checkbox" name="interestPolitics" value="Politics"/>
-                                <div class="control__indicator"></div>
-                            </label>
-                            <label class="control control--checkbox">Bussiness
-                                <input type="checkbox" name="interestBusiness" value="Business"/>
-                                <div class="control__indicator"></div>
-                            </label>
-                            <label class="control control--checkbox">Education
-                                <input type="checkbox" name="interestEducation" value="Education"/>
-                                <div class="control__indicator"></div>
-                            </label>
+                    <div id="interests">
+                        <h3 class="center">Choose Your Interests</h3>
+                        <div class="col-md-3 col-lg-3 col-xs-11 center-block panel panel-white">
+                            <div class="col-md-offset-3">
+                                <label class="control control--checkbox">Politics
+                                    <input type="checkbox" name="interestPolitics" value="Politics"/>
+                                    <div class="control__indicator"></div>
+                                </label>
+                                <label class="control control--checkbox">Business
+                                    <input type="checkbox" name="interestBusiness" value="Business"/>
+                                    <div class="control__indicator"></div>
+                                </label>
+                                <label class="control control--checkbox">Education
+                                    <input type="checkbox" name="interestEducation" value="Education"/>
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </div>
+                            <button class="btn btn-success btn-block" type="submit">Continue</button>
                         </div>
-                        <button class="btn btn-success btn-block" type="submit">Continue</button>
                     </div>
                 </form>
             </div>
         </div>
+
+        <script>
+            $("#interests").hide();
+            
+            $("#next").click(function(){
+                $("#details").hide();
+                $("#interests").show();
+            });
+        </script>
     </body>
 
 </html>

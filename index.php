@@ -1,10 +1,10 @@
 <?php
     include './process/connect.php';
     include './process/get_feed.php';
-    
+
 //  Supress warnings
     error_reporting(0);
-    
+
     session_start();
 
     if(!isset($_SESSION["username"])) {
