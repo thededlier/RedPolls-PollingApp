@@ -4,7 +4,7 @@
     session_start();
 
     $user = $_SESSION["username"];
-    
+
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $poll_id   = $_GET["poll_id"];
     } else {
@@ -18,7 +18,7 @@
 
     if($result->num_rows == 1) {
         $row = $result->fetch_assoc();
-        
+
         $title      = $row["title"];
         $desc       = $row["description"];
         $startDate  = $row["startDate"];
@@ -71,6 +71,22 @@
                 </form>
             </div>
         </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 panel panel-white">
+                    <img class="img-responsive" src="polls/covers/<?php echo $cover; ?>">
+                    <hr>
+                    <span class="event-title"><?php echo $title; ?></span><span class="event-creator">@<?php echo $creator; ?></span>
+                    <hr>
+                    <p><?php echo $desc; ?></p>
+                    <hr>
+                    <button class="btn btn-transparent pull-left"><span class="glyphicon glyphicon-arrow-up"><?php echo $upVotes; ?></span></button>
+                    <button class="btn btn-transparent pull-left"><span class="glyphicon glyphicon-arrow-down"><?php echo $downVotes; ?></span></button>
+                    <button class="btn btn-transparent pull-right"><span class="glyphicon glyphicon-time"><?php echo $endDate; ?></span></button>
+                </div>
+            </div>
+        </div>
 
         <!-- jQuery library -->
         <script src="js/jquery-1.9.1.min.js"></script>
