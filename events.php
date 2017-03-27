@@ -28,6 +28,7 @@
         $creator    = $row["createdBy"];
         $upVotes    = $row["upVotes"];
         $downVotes  = $row["downVotes"];
+        $mehVotes   = $row["mehVotes"];
     }
 ?>
 
@@ -36,6 +37,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
         <!-- Custom stylesheet -->
         <link rel="stylesheet" href="./css/stylesheet.css">
     </head>
@@ -81,9 +83,12 @@
                     <hr>
                     <p><?php echo $desc; ?></p>
                     <hr>
-                    <button class="btn btn-transparent pull-left"><span class="glyphicon glyphicon-arrow-up"><?php echo $upVotes; ?></span></button>
-                    <button class="btn btn-transparent pull-left"><span class="glyphicon glyphicon-arrow-down"><?php echo $downVotes; ?></span></button>
-                    <button class="btn btn-transparent pull-right"><span class="glyphicon glyphicon-time"><?php echo $endDate; ?></span></button>
+                    <form method="post" action="process/process_votes.php">
+                        <button class="btn btn-transparent pull-left"><span class="glyphicon glyphicon-arrow-up"><?php echo $upVotes; ?></span></button>
+                        <button class="btn btn-transparent pull-left"><span class="glyphicon glyphicon-arrow-down"><?php echo $downVotes; ?></span></button>
+                        <button class="btn btn-transparent pull-left"><i class="fa fa-meh-o" aria-hidden="true"><?php echo $mehVotes; ?></i></button>
+                        <button class="btn btn-transparent pull-right"><span class="glyphicon glyphicon-time"><?php echo $endDate; ?></span></button>
+                    </form>
                 </div>
             </div>
         </div>
