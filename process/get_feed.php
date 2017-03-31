@@ -31,7 +31,7 @@
                                         '<img class="img-responsive" src="./polls/covers/' . $row["coverImg"] . '">' .
                                     '</div>' .
                                     '<div class="col-xs-10 col-md-9">' .
-                                        '<h3>' . $row["title"] . '</h3>' .
+                                        '<h3 class="poll-head">' . $row["title"] . '</h3>' .
                                         '<p class="poll-desc">' .
                                             $row["description"] .
                                         '</p>' .
@@ -39,6 +39,26 @@
                                 '</div>' .
                             '</a>';
             }
+        }
+
+        return $html;
+    }
+
+    function getShort($user) {
+        include './process/connect.php';
+
+        $html = "";
+
+        $sql = "SELECT title, pollID FROM polls where createdBy = '$user'";
+
+        $result = $conn->query($sql);
+
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $html .= '<a href="./events.php?poll_id='. $row["pollID"] . '" class="list-group-item">' . $row["title"] . '</a>';
+            }
+        } else {
+            $html = '<a class="list-group-item"> You have no polls of your own </a>';
         }
 
         return $html;

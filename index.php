@@ -14,22 +14,23 @@
     $user = $_SESSION["username"];
 
 //    Get User Polls
-        $shortList = "";
-
-        $sql = "SELECT title FROM polls where createdBy = '$user'";
-
-        $result = $conn->query($sql);
-
-        if($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $shortList .= '<a href="#" class="list-group-item">' . $row["title"] . '</a>';
-            }
-        } else {
-            $shortList = '<a class="list-group-item"> You have no polls of your own </a>';
-        }
+        // $shortList = "";
+        //
+        // $sql = "SELECT title FROM polls where createdBy = '$user'";
+        //
+        // $result = $conn->query($sql);
+        //
+        // if($result->num_rows > 0) {
+        //     while($row = $result->fetch_assoc()) {
+        //         $shortList .= '<a href="./events.php?poll_id='. $row["pollID"] . '" class="list-group-item">' . $row["title"] . '</a>';
+        //     }
+        // } else {
+        //     $shortList = '<a class="list-group-item"> You have no polls of your own </a>';
+        // }
 //
 
     $feedList = getFeed($user);
+    $shortList = getShort($user);
 ?>
 
 <html>

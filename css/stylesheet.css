@@ -73,6 +73,12 @@ textarea {
     vertical-align: top;
 }
 
+.poll-head {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .poll-desc {
     white-space: nowrap;
     overflow: hidden;
