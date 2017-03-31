@@ -69,6 +69,10 @@ textarea {
     color: #5b5b5b;
 }
 
+.voteBtn {
+    vertical-align: top;
+}
+
 .control-group {
     display: inline-block;
     vertical-align: top;

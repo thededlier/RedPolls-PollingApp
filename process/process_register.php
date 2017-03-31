@@ -1,34 +1,38 @@
 <?php
 	include './connect.php';
-	
+
 	// Get values and test
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$name 			= 	test_input($_POST["name"]);
 		$user_name 		= 	test_input($_POST["username"]);
 		$email 			= 	test_input($_POST["userEmail"]);
 		$password 		=	test_input($_POST["userPass"]);
-	
+
 		$topics = "";
 
 		if(isset($_POST["interestPolitics"]))
 			$topics .= $_POST["interestPolitics"] . ',';
-		
+
 		if(isset($_POST["interestBusiness"]))
 			$topics .= $_POST["interestBusiness"] . ',';
-		
+
 		if(isset($_POST["interestEducation"]))
 			$topics .= $_POST["interestEducation"];
 
 		// [START SUBMISSION]
-		$sql = "INSERT INTO users(name, username, email, password) 
+		$sql = "INSERT INTO users(name, username, email, password)
 				VALUES('$name', '$user_name', '$email', '$password')";
 
 			if ($conn->query($sql) === TRUE) {
 				$sql = "INSERT INTO user_prefs(username, topics)
 						VALUES('$user_name', '$topics')";
-				
-				if($conn->query($sql) === TRUE)
-					header("Location: ../register-success.html");
+
+				if($conn->query($sql) === TRUE) {
+					$sql = "INSERT INTO user_votes(username)
+							VALUES('$user_name')";
+					if($conn->query($sql) === TRUE)
+						header("Location: ../register-success.html");
+				}
 			} else {
 				echo "Error: " . $sql . "<br>" . $conn->error;
 			}
@@ -41,6 +45,6 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-	
-		
+
+
 ?>

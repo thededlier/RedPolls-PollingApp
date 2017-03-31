@@ -84,11 +84,21 @@
                     <p><?php echo $desc; ?></p>
                     <hr>
                     <form method="post" action="process/process_votes.php">
-                        <button class="btn btn-transparent pull-left"><span class="glyphicon glyphicon-arrow-up"><?php echo $upVotes; ?></span></button>
-                        <button class="btn btn-transparent pull-left"><span class="glyphicon glyphicon-arrow-down"><?php echo $downVotes; ?></span></button>
-                        <button class="btn btn-transparent pull-left"><i class="fa fa-meh-o" aria-hidden="true"><?php echo $mehVotes; ?></i></button>
-                        <button class="btn btn-transparent pull-right"><span class="glyphicon glyphicon-time"><?php echo $endDate; ?></span></button>
+                        <input type="hidden" name="poll_id" value="<?php echo $poll_id;?>">
+                        <input type="hidden" name="action" value="upVote">
+                        <button class="btn btn-transparent pull-left voteBtn" type="submit"><span class="glyphicon glyphicon-arrow-up"></span> <?php echo $upVotes; ?></button>
                     </form>
+                    <form method="post" action="process/process_votes.php">
+                        <input type="hidden" name="poll_id" value="<?php echo $poll_id;?>">
+                        <input type="hidden" name="action" value="downVote">
+                        <button class="btn btn-transparent pull-left voteBtn" type="submit"><span class="glyphicon glyphicon-arrow-down"></span> <?php echo $downVotes; ?></button>
+                    </form>
+                    <form method="post" action="process/process_votes.php">
+                        <input type="hidden" name="poll_id" value="<?php echo $poll_id;?>">
+                        <input type="hidden" name="action" value="mehVote">
+                        <button class="btn btn-transparent pull-left voteBtn"><i class="fa fa-meh-o" aria-hidden="true"></i> <?php echo $mehVotes; ?></button>
+                    </form>
+                    <button class="btn btn-transparent pull-right"><span class="glyphicon glyphicon-time"> <?php echo $endDate; ?></span></button>
                 </div>
             </div>
         </div>
