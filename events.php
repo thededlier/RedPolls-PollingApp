@@ -115,19 +115,19 @@
                         <input type="hidden" name="poll_id" value="<?php echo $poll_id; ?>">
                         <input type="hidden" name="action" value="upVote">
                         <input type="hidden" name="vote_stat" value="<?php echo $stat; ?>">
-                        <button class="btn btn-transparent pull-left voteBtn" type="submit"><span class="glyphicon glyphicon-arrow-up"></span> <?php echo $upVotes; ?></button>
+                        <button class="btn btn-transparent pull-left voteBtn" type="submit"><span class="glyphicon glyphicon-arrow-up" id="upBtn"></span> <?php echo $upVotes; ?></button>
                     </form>
                     <form method="post" action="process/process_votes.php">
                         <input type="hidden" name="poll_id" value="<?php echo $poll_id; ?>">
                         <input type="hidden" name="action" value="downVote">
                         <input type="hidden" name="vote_stat" value="<?php echo $stat; ?>">
-                        <button class="btn btn-transparent pull-left voteBtn" type="submit"><span class="glyphicon glyphicon-arrow-down"></span> <?php echo $downVotes; ?></button>
+                        <button class="btn btn-transparent pull-left voteBtn" type="submit"><span class="glyphicon glyphicon-arrow-down" id="downBtn"></span> <?php echo $downVotes; ?></button>
                     </form>
                     <form method="post" action="process/process_votes.php">
                         <input type="hidden" name="poll_id" value="<?php echo $poll_id; ?>">
                         <input type="hidden" name="action" value="mehVote">
                         <input type="hidden" name="vote_stat" value="<?php echo $stat; ?>">
-                        <button class="btn btn-transparent pull-left voteBtn"><i class="fa fa-meh-o" aria-hidden="true"></i> <?php echo $mehVotes; ?></button>
+                        <button class="btn btn-transparent pull-left voteBtn"><i class="fa fa-meh-o" id="mehBtn" aria-hidden="true"></i> <?php echo $mehVotes; ?></button>
                     </form>
                     <button class="btn btn-transparent pull-right"><span class="glyphicon glyphicon-time"> <?php echo $endDate; ?></span></button>
                 </div>
@@ -139,5 +139,11 @@
         <!-- Latest compiled JavaScript -->
         <script src="./js/bootstrap.min.js"></script>
 
+        <script type="text/javascript">
+        // Change color of vote btn based on already voting
+            <?php if($stat != '') { ?>
+                        document.getElementById('<?php echo $stat; ?>Btn').style.color = "#2377ff";
+            <?php } ?>
+        </script>
     </body>
 </html>
