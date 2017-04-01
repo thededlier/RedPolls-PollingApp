@@ -4,7 +4,7 @@
     session_start();
 
     $user = $_SESSION["username"];
-    
+
 //    Get User Polls
         $shortList = "";
 
@@ -14,7 +14,7 @@
 
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                $shortList .= '<a href="#" class="list-group-item">' . $row["title"] . '</a>';   
+                $shortList .= '<a href="#" class="list-group-item">' . $row["title"] . '</a>';
             }
         } else {
             $shortList = '<a class="list-group-item"> You have no polls of your own </a>';
@@ -26,17 +26,17 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="./css/bootstrap.min.css">    
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
         <!-- Custom stylesheet -->
         <link rel="stylesheet" href="./css/stylesheet.css">
     </head>
-    <body>  
+    <body>
         <nav class="navbar navbar-default">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="./index.php">RedPolls</a>
                 </div>
-                
+
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="./create.php">New Poll</a></li>
                     <li><a href="#">My Polls</a></li>
@@ -124,7 +124,7 @@
         <script src="js/jquery-1.9.1.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="./js/bootstrap.min.js"></script>
-        
+
         <!-- Get image preview -->
         <script>
             document.getElementById("upFile").onchange = function () {
