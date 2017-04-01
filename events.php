@@ -107,7 +107,7 @@
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 panel panel-white">
                     <img class="img-responsive" src="polls/covers/<?php echo $cover; ?>">
                     <hr>
-                    <span class="event-title"><?php echo $title; ?></span><span class="event-creator">@<?php echo $creator; ?></span>
+                    <span class="event-title"><?php echo $title; ?></span><span class="event-creator"><a href="">@<?php echo $creator; ?></a></span>
                     <hr>
                     <p><?php echo $desc; ?></p>
                     <hr>
@@ -115,19 +115,25 @@
                         <input type="hidden" name="poll_id" value="<?php echo $poll_id; ?>">
                         <input type="hidden" name="action" value="upVote">
                         <input type="hidden" name="vote_stat" value="<?php echo $stat; ?>">
-                        <button class="btn btn-transparent pull-left voteBtn" type="submit"><span class="glyphicon glyphicon-arrow-up" id="upBtn"></span> <?php echo $upVotes; ?></button>
+                        <button class="btn btn-transparent pull-left voteBtn" type="submit">
+                            <span class="glyphicon glyphicon-arrow-up" id="upBtn"></span> <?php echo $upVotes; ?>
+                        </button>
                     </form>
                     <form method="post" action="process/process_votes.php">
                         <input type="hidden" name="poll_id" value="<?php echo $poll_id; ?>">
                         <input type="hidden" name="action" value="downVote">
                         <input type="hidden" name="vote_stat" value="<?php echo $stat; ?>">
-                        <button class="btn btn-transparent pull-left voteBtn" type="submit"><span class="glyphicon glyphicon-arrow-down" id="downBtn"></span> <?php echo $downVotes; ?></button>
+                        <button class="btn btn-transparent pull-left voteBtn" type="submit">
+                            <span class="glyphicon glyphicon-arrow-down" id="downBtn"></span> <?php echo $downVotes; ?>
+                        </button>
                     </form>
                     <form method="post" action="process/process_votes.php">
                         <input type="hidden" name="poll_id" value="<?php echo $poll_id; ?>">
                         <input type="hidden" name="action" value="mehVote">
                         <input type="hidden" name="vote_stat" value="<?php echo $stat; ?>">
-                        <button class="btn btn-transparent pull-left voteBtn"><i class="fa fa-meh-o" id="mehBtn" aria-hidden="true"></i> <?php echo $mehVotes; ?></button>
+                        <button class="btn btn-transparent pull-left voteBtn" type="submit">
+                            <i class="fa fa-meh-o" id="mehBtn" aria-hidden="true"></i> <?php echo $mehVotes; ?>
+                        </button>
                     </form>
                     <button class="btn btn-transparent pull-right"><span class="glyphicon glyphicon-time"> <?php echo $endDate; ?></span></button>
                 </div>

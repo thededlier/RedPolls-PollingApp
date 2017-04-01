@@ -40,6 +40,7 @@
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <!-- Custom stylesheet -->
         <link rel="stylesheet" href="./css/stylesheet.css">
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
     </head>
     <body>
         <nav class="navbar navbar-default">
