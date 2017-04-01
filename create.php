@@ -105,8 +105,8 @@
                         </div>
                         <div class="col-md-11">
                             <div class="pull-right">
-                                <button type="button" class="btn btn-default">Cancel</button>
                                 <button type="submit" class="btn btn-primary">Create</button>
+                                <a href="index.php" class="btn btn-default">Cancel</a>
                             </div>
                         </div>
                     </form>

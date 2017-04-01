@@ -57,6 +57,11 @@
                 }
             }
         }
+        if($creator === $user) {
+            $enable_edit = TRUE;
+        } else {
+            $enable_edit = FALSE;
+        }
     }
 ?>
 
@@ -107,7 +112,12 @@
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 panel panel-white">
                     <img class="img-responsive" src="polls/covers/<?php echo $cover; ?>">
                     <hr>
-                    <span class="event-title"><?php echo $title; ?></span><span class="event-creator"><a href="">@<?php echo $creator; ?></a></span>
+                    <span class="event-title"><?php echo $title; ?></span>
+                    <span class="event-creator"><a href="">@<?php echo $creator; ?></a></span>
+                    <form action="./edit-poll.php" method="POST">
+                        <input type="hidden" name="poll_id" value="<?php echo $poll_id; ?>">
+                        <span class="pull-right"><button class="btn btn-primary" type="submit" id="editBtn">Edit</button></span>
+                    </form>
                     <hr>
                     <p><?php echo $desc; ?></p>
                     <hr>
@@ -136,6 +146,12 @@
                         </button>
                     </form>
                     <button class="btn btn-transparent pull-right"><span class="glyphicon glyphicon-time"> <?php echo $endDate; ?></span></button>
+                    <div class="md-chip blue pull-right">
+                        <div class="md-chip-img">
+                            <span class="md-chip-span blue">&nbsp;</span>
+                        </div>
+                        <span class="md-chip-text"><?php echo $topics; ?></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -150,6 +166,12 @@
             <?php if($stat != '') { ?>
                         document.getElementById('<?php echo $stat; ?>Btn').style.color = "#2377ff";
             <?php } ?>
+
+            <?php if($enable_edit === TRUE) { ?>
+                        document.getElementById('editBtn').style.display = "block";
+            <?php } else { ?>
+                        document.getElementById('editBtn').style.display = "none";
+            <?php }?>
         </script>
     </body>
 </html>
