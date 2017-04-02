@@ -83,20 +83,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 panel panel-white">
-                    <form action="./process/process_change.php" method="POST">
+                    <form action="./process/process_change.php" method="POST" enctype = "multipart/form-data">
                         <img class="img-responsive" id="preview" src="polls/covers/<?php echo $cover; ?>">
                         <hr>
+                        <input type="hidden" name="poll_id" value="<?php echo $poll_id; ?>">
                         <div class="form-group">
                             <label for="upFile">Change Cover Image</label>
-                            <input type="file" accept="image/jpeg, image/png" class="btn btn-primary" id="upFile" name="image">
+                            <input type="file" accept="image/jpeg, image/png" class="btn btn-primary" id="upFile" name="newCoverImg">
                         </div>
                         <div class="form-group">
                             <label for="event-title">Title</label>
-                            <input type="text" class="form-control" name="eventTitle" id="event-title" value="<?php echo $title; ?>">
+                            <input type="text" class="form-control" name="pollTitle" id="event-title" value="<?php echo $title; ?>">
                         </div>
                         <div class="form-group">
                             <label for="event-desc">Description</label>
-                            <textarea class="form-control" rows=4 name="eventDesc" id="event-desc"><?php echo $desc; ?></textarea>
+                            <textarea class="form-control" rows=4 name="pollDesc" id="event-desc"><?php echo $desc; ?></textarea>
                         </div>
                         <hr>
                         <div class="pull-right">

@@ -1,6 +1,6 @@
 <?php
 	include './connect.php';
-	
+
     session_start();
 	// Get values and test
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -8,15 +8,15 @@
         $desc               =   test_input($_POST["pollDesc"]);
         $endDate            =   test_input($_POST["endDate"]);
         $topics             =   test_input($_POST["topics"]);
-        
+
         $user = $_SESSION["username"];
         $errors = "";
 
-        $sql = "SELECT title FROM polls where title = $title"; 
+        $sql = "SELECT title FROM polls where title = $title";
 
         if($conn->query($sql)) {
             $errors = "Title already exists";
-            die(); 
+            die();
         }
 
         // File Upload and verification
@@ -25,17 +25,17 @@
         $file_tmp  = $_FILES["image"]['tmp_name'];
         $file_type = $_FILES["image"]['type'];
         $file_ext=strtolower(end(explode('.',$_FILES["image"]['name'])));
-        
+
         $expensions= array("jpeg","jpg","png");
-        
+
         if(in_array($file_ext,$expensions)=== false){
             $errors="extension not allowed";
         }
-      
+
         if($file_size > 2097152) {
             $errors='File size must be less than 2MB';
         }
-      
+
         if($errors == "") {
             $cover_img = $title . "." . $file_ext;
 
@@ -58,5 +58,5 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-    
+
 ?>
