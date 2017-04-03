@@ -1,6 +1,7 @@
 <?php
     include './process/connect.php';
     include './process/get_feed.php';
+    include './process/search.php';
 
 //  Supress warnings
     error_reporting(0);
@@ -28,8 +29,14 @@
         //     $shortList = '<a class="list-group-item"> You have no polls of your own </a>';
         // }
 //
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        $search_key = $_GET["search_key"];
+    } else {
+        header("Location: index.php");
+        die();
+    }
 
-    $feedList = getFeed($user);
+    $searchList = searchQuery($search_key);
     $shortList = getShort($user);
 ?>
 
@@ -79,8 +86,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 panel panel-white">
                     <div class="list-group">
-                        <h1>My Feed</h1>
-                        <?php echo $feedList; ?>
+                        <h1>Search Results</h1>
+                        <?php echo $searchList; ?>
                     </div>
                 </div>
 
