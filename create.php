@@ -50,11 +50,11 @@
                     <!--<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
                 </ul>
 
-                <form class="navbar-form navbar-left">
+                <form class="navbar-form navbar-left" action="./search-results.php" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" name="search_key" placeholder="Search">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
+                            <button class="btn btn-primary" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>

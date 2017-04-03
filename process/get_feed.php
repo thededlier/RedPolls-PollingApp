@@ -21,6 +21,8 @@
         foreach($topic as $i) {
             $sql .= " OR topics = '$i'";
         }
+
+        $sql .= " OR topics = 'Other' order by startDate desc";
         $result = $conn->query($sql);
 
         if($result->num_rows > 0) {
