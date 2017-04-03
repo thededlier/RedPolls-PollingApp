@@ -27,7 +27,7 @@
                 die();
             }
         }
-        if(isset($_FILES["newCoverImg"])) {
+        if(!isset($_FILES["newCoverImg"])) {
             $sql = "SELECT coverImg from polls where pollID = $poll_id";
             $result = $conn->query($sql);
             if($result->num_rows === 1) {
@@ -40,7 +40,7 @@
                     WHERE pollId = $poll_id";
 
 
-            rename("../polls/covers/" . $coverImg, "../polls/covers/" . $title . $path_parts['extension']);
+            rename("../polls/covers/" . $coverImg, "../polls/covers/" . $title . '.' . $path_parts['extension']);
 
             if($conn->query($sql) != TRUE) {
                 $errors = "Failed";
